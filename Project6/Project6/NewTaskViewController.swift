@@ -88,5 +88,10 @@ class NewTaskViewController: UIViewController {
         
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let destinationVC = segue.destination as? TaskTableViewController {
     
+    
+        }
+    }
 }

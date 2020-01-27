@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InitialTableViewController: UITableViewController {
+class TaskTableViewController: UITableViewController {
     var taskList: [String] = []
 
     override func viewDidLoad() {
@@ -37,12 +37,6 @@ class InitialTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "initialTableViewCell", for: indexPath)
 
         // Configure the cell...
-        // Downcasting
-        if let cellWithOtherName = cell as? InitialTableViewCell {
-            cellWithOtherName.taskNameLabel.text = taskList[indexPath.row]
-            return cellWithOtherName
-        }
-        
         return cell
     }
 
