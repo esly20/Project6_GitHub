@@ -44,6 +44,7 @@
         <scene sceneID="cYT-We-4KX">
             <objects>
                 <tabBarController id="7X8-Z8-aIz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0co-Vd-8Q5"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dV3-kc-Xfk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -74,7 +75,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFq-BZ-xBQ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFq-BZ-xBQ">
                                             <rect key="frame" x="0.0" y="-1" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -103,9 +104,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="taskDeadline" destination="llF-Ov-qeo" id="Kh1-3F-Hq0"/>
                                     <outlet property="taskDescription" destination="cxc-Ii-9ap" id="qbw-fW-hT0"/>
                                     <outlet property="taskNameLabel" destination="hFq-BZ-xBQ" id="hY3-rl-lym"/>
-                                    <outlet property="taskRemainingHours" destination="llF-Ov-qeo" id="NYn-eJ-25d"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -144,7 +145,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epv-Za-sW9">
-                                        <rect key="frame" x="0.0" y="115" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="240.5" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYf-M5-8B7">
                                                 <rect key="frame" x="0.0" y="0.0" width="77.5" height="34"/>
@@ -160,7 +161,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lhm-AM-00E">
-                                        <rect key="frame" x="0.0" y="215.5" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="465.5" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5V-JW-brg">
                                                 <rect key="frame" x="0.0" y="0.0" width="92.5" height="34"/>
@@ -176,40 +177,21 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obF-P0-a5e">
-                                        <rect key="frame" x="0.0" y="315.5" width="414" height="216"/>
+                                        <rect key="frame" x="0.0" y="691" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t52-vS-xfo">
-                                                <rect key="frame" x="0.0" y="0.0" width="67" height="216"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kZM-XU-3FI">
-                                                <rect key="frame" x="67" y="0.0" width="347" height="216"/>
-                                            </datePicker>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btc-4e-Fd9">
+                                                <rect key="frame" x="67" y="0.0" width="347" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rc3-bS-g0H">
-                                        <rect key="frame" x="0.0" y="598" width="414" height="31"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make this a priority task?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1M0-eG-tdp">
-                                                <rect key="frame" x="0.0" y="0.0" width="365" height="31"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-yP-aws">
-                                                <rect key="frame" x="365" y="0.0" width="51" height="31"/>
-                                            </switch>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehL-I1-yTA">
-                                        <rect key="frame" x="0.0" y="695" width="414" height="30"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="doneCreatingTaskPressed:" destination="6ES-Jg-eTI" eventType="touchUpInside" id="Nbz-J7-PIJ"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="xXt-hC-Goq" firstAttribute="centerX" secondItem="0MV-2x-xPi" secondAttribute="centerX" id="4xc-VC-iAR"/>
@@ -225,11 +207,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Eih-6l-z0H"/>
                     </view>
+                    <navigationItem key="navigationItem" id="i2r-vW-6Rv">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="hRs-9V-Ye0">
+                            <connections>
+                                <action selector="doneCreatingTaskPressed:" destination="6ES-Jg-eTI" id="84S-Rp-2cs"/>
+                                <segue destination="7X8-Z8-aIz" kind="showDetail" id="v6k-ae-wR4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="newTaskDeadlineInput" destination="kZM-XU-3FI" id="Guc-fa-zt8"/>
+                        <outlet property="newTaskDeadlineInput" destination="btc-4e-Fd9" id="iEa-Nv-vbW"/>
                         <outlet property="newTaskDescriptionInput" destination="Fuc-JA-9Ba" id="Piv-nP-FlM"/>
                         <outlet property="newTaskNameInput" destination="n7r-vP-FZO" id="kgf-Nv-Mi6"/>
-                        <outlet property="newTaskPriorityInput" destination="w4E-yP-aws" id="7Yu-Ko-ZzM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Zt-pD-Jhu" userLabel="First Responder" sceneMemberID="firstResponder"/>

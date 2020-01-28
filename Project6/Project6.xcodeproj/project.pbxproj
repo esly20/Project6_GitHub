@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F610D1723D8BBD3000348BD /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F610D1623D8BBD3000348BD /* NewTaskViewController.swift */; };
+		3FC0480223DFA1F6007A818A /* TaskClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0480123DFA1F6007A818A /* TaskClass.swift */; };
 		B518A34723D2439C002895FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518A34623D2439C002895FE /* AppDelegate.swift */; };
 		B518A34B23D2439C002895FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518A34A23D2439C002895FE /* ViewController.swift */; };
 		B518A34E23D2439C002895FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B518A34C23D2439C002895FE /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		3F610D1623D8BBD3000348BD /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
+		3FC0480123DFA1F6007A818A /* TaskClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskClass.swift; sourceTree = "<group>"; };
 		B518A34323D2439C002895FE /* Project6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B518A34623D2439C002895FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B518A34A23D2439C002895FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		B518A34523D2439C002895FE /* Project6 */ = {
 			isa = PBXGroup;
 			children = (
+				3FC0480123DFA1F6007A818A /* TaskClass.swift */,
 				B518A34623D2439C002895FE /* AppDelegate.swift */,
 				B518A34A23D2439C002895FE /* ViewController.swift */,
 				B518A34C23D2439C002895FE /* Main.storyboard */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B518A35D23D2452E002895FE /* TaskTableViewController.swift in Sources */,
+				3FC0480223DFA1F6007A818A /* TaskClass.swift in Sources */,
 				3F610D1723D8BBD3000348BD /* NewTaskViewController.swift in Sources */,
 				B518A34B23D2439C002895FE /* ViewController.swift in Sources */,
 				B518A34723D2439C002895FE /* AppDelegate.swift in Sources */,

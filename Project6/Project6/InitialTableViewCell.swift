@@ -14,8 +14,7 @@ class InitialTableViewCell: UITableViewCell {
     
     @IBOutlet var taskDescription: UILabel!
     
-    @IBOutlet var taskRemainingHours: UILabel!
-    
+    @IBOutlet var taskDeadline: UILabel!
     
     override func awakeFromNib() {
             super.awakeFromNib()

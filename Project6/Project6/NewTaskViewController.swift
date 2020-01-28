@@ -12,12 +12,11 @@ class NewTaskViewController: UIViewController {
     let defaults = UserDefaults.standard
     @IBOutlet var newTaskNameInput: UITextField!
     @IBOutlet var newTaskDescriptionInput: UITextField!
-    @IBOutlet var newTaskDeadlineInput: UIDatePicker!
-    @IBOutlet var newTaskPriorityInput: UISwitch!
+    @IBOutlet var newTaskDeadlineInput: UITextField!
+
     var taskNames: [String] = []
     var taskDescriptions: [String] = []
-    var taskDeadlines: [Date] = []
-    var taskPriorities: [Bool] = []
+    var taskDeadlines: [String] = []
 
 
     override func viewDidLoad() {
@@ -27,33 +26,21 @@ class NewTaskViewController: UIViewController {
         taskNames.append(newTaskNametext)
         // Save the new UserDefaults
         defaults.set(taskNames, forKey: "taskNames")
+        print("\(taskNames)")
         
         let newTaskDescriptiontext = newTaskDescriptionInput.text!
         taskDescriptions.append(newTaskDescriptiontext)
         defaults.set(taskDescriptions, forKey: "taskDescriptions")
 
         
-        let newTaskDeadline = newTaskDeadlineInput.date
+        let newTaskDeadline = newTaskDeadlineInput.text!
         taskDeadlines.append(newTaskDeadline)
         defaults.set(taskDeadlines, forKey: "taskDeadlines")
-
-        
-        if newTaskPriorityInput.isOn {
-            let newTaskPriority = true
-            taskPriorities.append(newTaskPriority)
-            defaults.set(taskPriorities, forKey: "taskPriorities")
-
-        } else {
-            let newTaskPriority = false
-            taskPriorities.append(newTaskPriority)
-            defaults.set(taskPriorities, forKey: "taskPriorities")
-
-        }
 
     }
 
 
-    @IBAction func doneCreatingTaskPressed(_ sender: UIButton) {
+    @IBAction func doneCreatingTaskPressed(_ sender: UIBarButtonItem) {
         if let taskNameData = defaults.array(forKey: "taskNames") as? [String] {
             // successfully found the saved data!
             taskNames = taskNameData
@@ -70,7 +57,7 @@ class NewTaskViewController: UIViewController {
         defaults.set([String](), forKey: "taskDescriptions")
         }
         
-        if let taskDeadlineData = defaults.array(forKey: "taskDeadlines") as? [Date] {
+        if let taskDeadlineData = defaults.array(forKey: "taskDeadlines") as? [String] {
             // successfully found the saved data!
             taskDeadlines = taskDeadlineData
         }else {
@@ -78,20 +65,15 @@ class NewTaskViewController: UIViewController {
         defaults.set([String](), forKey: "taskDeadlines")
         }
         
-        if let taskPriorityData = defaults.array(forKey: "taskPriorities") as? [Bool] {
-            // successfully found the saved data!
-            taskPriorities = taskPriorityData
-        }else {
-            // No student data saved (first time only, probably!
-        defaults.set([String](), forKey: "taskPriorities")
         }
         
-        
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let destinationVC = segue.destination as? TaskTableViewController {
-    
-    
+        destinationVC.taskNames = taskNames
+        destinationVC.taskDeadlines = taskDeadlines
+        destinationVC.taskDescriptions = taskDescriptions
+
+
         }
     }
 }
