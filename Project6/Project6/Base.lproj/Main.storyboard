@@ -59,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="-2223" y="-324"/>
         </scene>
-        <!--Task Table View Controller-->
+        <!--To-Do-->
         <scene sceneID="1c5-g1-yXI">
             <objects>
                 <tableViewController id="cE2-Bw-9Vh" customClass="TaskTableViewController" sceneMemberID="viewController">
@@ -115,7 +115,7 @@
                             <outlet property="delegate" destination="cE2-Bw-9Vh" id="SZb-ST-w6Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="iBr-Nz-UJ5">
+                    <navigationItem key="navigationItem" title="To-Do" id="iBr-Nz-UJ5">
                         <barButtonItem key="rightBarButtonItem" title="Add Item" id="iw2-G8-IVO">
                             <connections>
                                 <segue destination="6ES-Jg-eTI" kind="show" id="WS1-kb-evm"/>
@@ -210,8 +210,7 @@
                     <navigationItem key="navigationItem" id="i2r-vW-6Rv">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="hRs-9V-Ye0">
                             <connections>
-                                <action selector="doneCreatingTaskPressed:" destination="6ES-Jg-eTI" id="84S-Rp-2cs"/>
-                                <segue destination="7X8-Z8-aIz" kind="showDetail" id="v6k-ae-wR4"/>
+                                <action selector="doneButtonPressed:" destination="6ES-Jg-eTI" id="ZmJ-nn-9pf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

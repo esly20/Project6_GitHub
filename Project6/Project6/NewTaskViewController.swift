@@ -19,19 +19,23 @@ class NewTaskViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func doneCreatingTaskPressed(_ sender: UIBarButtonItem) {
-        if let destinationVC = segue.destination as? TaskTableViewController{
-        let newTaskNameText = newTaskNameInput.text!
-            destinationVC.taskNameBeingAdded = newTaskNameText
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "To-Do", sender: nil)
+            if let destinationVC = segue.destination as? TaskTableViewController{
+            let newTaskNameText = newTaskNameInput.text!
+                destinationVC.taskNameBeingAdded = newTaskNameText
+                
+                let newTaskDescriptiontext = newTaskDescriptionInput.text!
+                destinationVC.taskDescriptionBeingAdded =  newTaskDescriptiontext
+                
+                let newTaskDeadline = newTaskDeadlineInput.text!
+                destinationVC.taskDeadlineBeingAdded =  newTaskDeadline
+                print(newTaskNameText)
+                print(newTaskDeadline)
+                print(newTaskDescriptiontext)
 
-            
-            let newTaskDescriptiontext = newTaskDescriptionInput.text!
-            destinationVC.taskDescriptionBeingAdded =  newTaskDescriptiontext
-
-            
-            let newTaskDeadline = newTaskDeadlineInput.text!
-            destinationVC.taskDeadlineBeingAdded =  newTaskDeadline
-
+            }
         }
     }
+    
 }
