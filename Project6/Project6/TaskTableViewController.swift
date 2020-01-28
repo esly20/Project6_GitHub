@@ -9,23 +9,38 @@
 import UIKit
 
 class TaskTableViewController: UITableViewController {
-    var taskList: [String] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    let defaults = UserDefaults.standard
+    
     var taskNames: [String] = []
     var taskDescriptions: [String] = []
     var taskDeadlines: [String] = []
 
-    var newTaskNameText: String = ""
-    var newTaskDescriptiontext: String = ""
-    var newTaskDeadline: String = ""
-
-    var taskNameBeingAdded: String = ""
-    var taskDescriptionBeingAdded: String = ""
-    var taskDeadlineBeingAdded: String = ""
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let taskNamesData =
+            defaults.array(forKey: "taskNames") as? [String] {
+            // successfully found the saved data!
+            taskNames = taskNamesData
+        } else {
+            // No student data saved (first time only, probably!
+            defaults.set([String](), forKey: "taskNames")
+        }
+        if let taskDescriptionData = defaults.array(forKey: "taskDescriptions") as? [String] {
+            // successfully found the saved data!
+            taskDescriptions = taskDescriptionData
+        } else {
+            // No student data saved (first time only, probably!
+            defaults.set([String](), forKey: "taskDescriptions")
+        }
+        if let taskDeadlinesData = defaults.array(forKey: "taskDeadlines") as? [String] {
+            // successfully found the saved data!
+            taskDeadlines = taskDeadlinesData
+        } else {
+            // No student data saved (first time only, probably!
+            defaults.set([String](), forKey: "taskDeadlines")
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,19 +49,19 @@ class TaskTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return taskNames.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InitialTableViewCell", for: indexPath)
-        if let cellWithOtherName = cell as? InitialTableViewCell {
-            cellWithOtherName.taskNameLabel.text = taskNames[indexPath.row]
-            cellWithOtherName.taskDescription.text = taskDescriptions[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "initialTableViewCell", for: indexPath)
+        if let newCell = cell as? InitialTableViewCell {
+            newCell.taskNameLabel.text = taskNames[indexPath.row]
+            
+            newCell.taskDescription.text = taskDescriptions[indexPath.row]
            
-            cellWithOtherName.taskDeadline.text = taskDeadlines[indexPath.row]
+            newCell.taskDeadline.text = taskDeadlines[indexPath.row]
 
-                   return cellWithOtherName
+                   return newCell
                }
         // Configure the cell...
         return cell

@@ -64,7 +64,7 @@
             <objects>
                 <tableViewController id="cE2-Bw-9Vh" customClass="TaskTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y8M-ld-OUi" customClass="TaskTableViewContoller">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -132,11 +132,11 @@
             <objects>
                 <viewController id="6ES-Jg-eTI" customClass="NewTaskViewController" customModule="Project6" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fUz-eQ-NHN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0MV-2x-xPi">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a New To-Do" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXt-hC-Goq">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -145,7 +145,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epv-Za-sW9">
-                                        <rect key="frame" x="0.0" y="240.5" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="268" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYf-M5-8B7">
                                                 <rect key="frame" x="0.0" y="0.0" width="77.5" height="34"/>
@@ -161,7 +161,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lhm-AM-00E">
-                                        <rect key="frame" x="0.0" y="465.5" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="521" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5V-JW-brg">
                                                 <rect key="frame" x="0.0" y="0.0" width="92.5" height="34"/>
@@ -177,7 +177,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obF-P0-a5e">
-                                        <rect key="frame" x="0.0" y="691" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="774" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t52-vS-xfo">
                                                 <rect key="frame" x="0.0" y="0.0" width="67" height="34"/>
@@ -210,7 +210,8 @@
                     <navigationItem key="navigationItem" id="i2r-vW-6Rv">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="hRs-9V-Ye0">
                             <connections>
-                                <action selector="doneButtonPressed:" destination="6ES-Jg-eTI" id="ZmJ-nn-9pf"/>
+                                <action selector="doneButtonPressed:" destination="6ES-Jg-eTI" id="wY6-C4-gY7"/>
+                                <segue destination="cE2-Bw-9Vh" kind="show" id="TSe-zV-o0x"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -244,4 +245,8 @@
             <point key="canvasLocation" x="-1195.6521739130435" y="-464.0625"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WS1-kb-evm"/>
+        <segue reference="TSe-zV-o0x"/>
+    </inferredMetricsTieBreakers>
 </document>
