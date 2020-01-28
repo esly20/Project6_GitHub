@@ -18,6 +18,14 @@ class TaskTableViewController: UITableViewController {
     var taskDescriptions: [String] = []
     var taskDeadlines: [String] = []
 
+    var newTaskNameText: String = ""
+    var newTaskDescriptiontext: String = ""
+    var newTaskDeadline: String = ""
+
+    var taskNameBeingAdded: String = ""
+    var taskDescriptionBeingAdded: String = ""
+    var taskDeadlineBeingAdded: String = ""
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
