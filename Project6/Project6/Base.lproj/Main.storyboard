@@ -11,30 +11,39 @@
         <!--View Controller-->
         <scene sceneID="gh7-C3-0Po">
             <objects>
-                <viewController id="P4n-xK-9aa" sceneMemberID="viewController">
+                <viewController id="P4n-xK-9aa" customClass="ViewController" customModule="Project6" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UPp-nA-JaS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GDD-0c-T7w">
-                                <rect key="frame" x="152" y="348" width="150" height="27.5"/>
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GDD-0c-T7w">
+                                <rect key="frame" x="10" y="74" width="394" height="69"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-ZO-JKI">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points Toward Next Goal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-ZO-JKI">
+                                        <rect key="frame" x="10.5" y="0.0" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <color key="textColor" red="0.4629649417006047" green="0.14308860103292109" blue="0.91980725526809692" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="leg-Uk-Zer">
-                                        <rect key="frame" x="0.0" y="25.5" width="150" height="2"/>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" trackImage="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="leg-Uk-Zer">
+                                        <rect key="frame" x="10.5" y="64.5" width="373" height="2.5"/>
+                                        <color key="progressTintColor" red="0.46296494170000002" green="0.14308860100000001" blue="0.91980725529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </progressView>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.91551517824285189" blue="0.65616477979231314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="GDD-0c-T7w" firstAttribute="top" secondItem="4e0-iZ-Tfo" secondAttribute="top" constant="30" id="GgJ-Gp-ai7"/>
+                            <constraint firstItem="4e0-iZ-Tfo" firstAttribute="trailing" secondItem="GDD-0c-T7w" secondAttribute="trailing" constant="10" id="rxI-6j-d2v"/>
+                            <constraint firstItem="GDD-0c-T7w" firstAttribute="leading" secondItem="4e0-iZ-Tfo" secondAttribute="leading" constant="10" id="yV2-p2-1Pc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4e0-iZ-Tfo"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="tq6-OB-sGN"/>
+                    <connections>
+                        <outlet property="phrasesLabel" destination="Rcf-ZO-JKI" id="NvH-c0-9Nt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cE7-t0-ezq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -198,7 +207,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92958509579067061" green="1" blue="0.94817150905212488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="0MV-2x-xPi" firstAttribute="leading" secondItem="Eih-6l-z0H" secondAttribute="leading" id="Ao7-np-OXS"/>
                             <constraint firstItem="Eih-6l-z0H" firstAttribute="trailing" secondItem="0MV-2x-xPi" secondAttribute="trailing" id="gEF-XC-9QN"/>
@@ -245,8 +254,10 @@
             <point key="canvasLocation" x="-1195.6521739130435" y="-464.0625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil" catalog="system" width="64" height="56"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WS1-kb-evm"/>
         <segue reference="TSe-zV-o0x"/>
     </inferredMetricsTieBreakers>
 </document>

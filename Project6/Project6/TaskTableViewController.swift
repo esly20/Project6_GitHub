@@ -1,11 +1,9 @@
-//
 //  TaskTableViewController.swift
 //  Project6
 //
 //  Created by emma on 1/17/20.
 //  Copyright © 2020 Emma Slibeck. All rights reserved.
 //
-
 import UIKit
 
 class TaskTableViewController: UITableViewController {
@@ -19,24 +17,18 @@ class TaskTableViewController: UITableViewController {
         super.viewDidLoad()
         if let taskNamesData =
             defaults.array(forKey: "taskNames") as? [String] {
-            // successfully found the saved data!
             taskNames = taskNamesData
         } else {
-            // No student data saved (first time only, probably!
             defaults.set([String](), forKey: "taskNames")
         }
         if let taskDescriptionData = defaults.array(forKey: "taskDescriptions") as? [String] {
-            // successfully found the saved data!
             taskDescriptions = taskDescriptionData
         } else {
-            // No student data saved (first time only, probably!
             defaults.set([String](), forKey: "taskDescriptions")
         }
         if let taskDeadlinesData = defaults.array(forKey: "taskDeadlines") as? [String] {
-            // successfully found the saved data!
             taskDeadlines = taskDeadlinesData
         } else {
-            // No student data saved (first time only, probably!
             defaults.set([String](), forKey: "taskDeadlines")
         }
     }
@@ -44,8 +36,7 @@ class TaskTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +54,6 @@ class TaskTableViewController: UITableViewController {
 
                    return newCell
                }
-        // Configure the cell...
         return cell
     }
            
