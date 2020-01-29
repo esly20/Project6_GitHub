@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet var jokeLabel: UILabel!
     @IBOutlet var punchlineLabel: UILabel!
     
+    let explainText: String = "Unlock more Jokes by completimng more TO-DO list items!"
+    
     var encouragingPhrases: [String] = ["You Got This!", "Almost There", "Don't Give Up", "The End Is Near", "You're So Close", "Anything Is Possible", "You Will Make It", "You're a Star", "You're Doing Great", "Keep Going", "Go You!"]
     var randomInt = Int.random(in: 0...10)
     
@@ -82,6 +84,11 @@ class ViewController: UIViewController {
             punchlineLabel.text = punchlines[5]
         }
 
+    }
+    @IBAction func howToPlayPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Home", message: self.explainText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
