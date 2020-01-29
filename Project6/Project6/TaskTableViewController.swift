@@ -14,8 +14,10 @@ class TaskTableViewController: UITableViewController {
     var taskNames: [String] = []
     var taskDescriptions: [String] = []
     var taskDeadlines: [String] = []
-    var tasksFinished: [String] = []
-    
+    var taskNamesFinished: [String] = []
+    var taskDescriptionsFinished: [String] = []
+    var taskDeadlinesFinished: [String] = []
+
 override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +57,6 @@ override func viewDidAppear(_ annimated: Bool){
         if let cellWithOtherName = cell as? InitialTableViewCell {
             cellWithOtherName.taskNameLabel.text = taskNames[indexPath.row]
             cellWithOtherName.taskDescription.text = taskDescriptions[indexPath.row]
-            
             cellWithOtherName.taskDeadline.text = taskDeadlines[indexPath.row]
             
             return cellWithOtherName
@@ -67,24 +68,22 @@ override func viewDidAppear(_ annimated: Bool){
         if editingStyle == .delete {
             
             //add to deleted tasks array
-            tasksFinished.append(taskNames[indexPath.row])
-            tasksFinished.append(taskDescriptions[indexPath.row])
-            tasksFinished.append(taskDeadlines[indexPath.row])
+            taskNamesFinished.append(taskNames[indexPath.row])
+            taskDescriptionsFinished.append(taskDescriptions[indexPath.row])
+            taskDeadlinesFinished.append(taskDeadlines[indexPath.row])
 
-            
-            //delete item from tasks array
             taskNames.remove(at: indexPath.row)
             taskDescriptions.remove(at: indexPath.row)
             taskDeadlines.remove(at: indexPath.row)
 
             
-            //update user defaults here
             defaults.set(taskNames, forKey: "taskNames")
             defaults.set(taskDescriptions, forKey: "taskNames")
             defaults.set(taskDeadlines, forKey: "taskNames")
-            defaults.set(tasksFinished, forKey: "tasksFinished")
+            defaults.set(taskNamesFinished, forKey: "taskNamesFinished")
+            defaults.set(taskDeadlinesFinished, forKey: "taskDeadlinesFinished")
+            defaults.set(taskDescriptionsFinished, forKey: "taskDescriptionsFinished")
 
-            // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             
