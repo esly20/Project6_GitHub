@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="-2223" y="-324"/>
         </scene>
-        <!--Tasks-->
+        <!--Task Table View Controller-->
         <scene sceneID="1c5-g1-yXI">
             <objects>
-                <tableViewController id="cE2-Bw-9Vh" customClass="TaskTableViewController" sceneMemberID="viewController">
+                <tableViewController id="cE2-Bw-9Vh" customClass="TaskTableViewController" customModule="Project6" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y8M-ld-OUi" customClass="TaskTableViewContoller">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Tasks" id="iBr-Nz-UJ5">
+                    <navigationItem key="navigationItem" id="iBr-Nz-UJ5">
                         <barButtonItem key="rightBarButtonItem" title="+ To-Do" id="gHw-J6-GBh">
                             <connections>
                                 <segue destination="6ES-Jg-eTI" kind="presentation" id="Sqk-eX-R97"/>

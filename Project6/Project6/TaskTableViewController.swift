@@ -19,12 +19,13 @@ class TaskTableViewController: UITableViewController {
 override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let taskNamesData =
+        
+    }
+    
+override func viewDidAppear(_ annimated: Bool){
+    if let taskNamesData =
             defaults.array(forKey: "taskNames") as? [String] {
             taskNames = taskNamesData
-        
-            print("Data Loaded")
-        
         } else {
             defaults.set([String](), forKey: "taskNames")
         }
@@ -37,22 +38,6 @@ override func viewDidLoad() {
             taskDeadlines = taskDeadlinesData
         } else {
             defaults.set([String](), forKey: "taskDeadlines")
-        }
-    }
-    
-override func viewDidAppear(_ annimated: Bool){
-        if let taskNamesData =
-            defaults.array(forKey: "taskNames") as? [String] {
-            // successfully found the saved data!
-            taskNames = taskNamesData
-        }
-        if let taskDescriptionData = defaults.array(forKey: "taskDescriptions") as? [String] {
-            // successfully found the saved data!
-            taskDescriptions = taskDescriptionData
-        }
-        if let taskDeadlinesData = defaults.array(forKey: "taskDeadlines") as? [String] {
-            // successfully found the saved data!
-            taskDeadlines = taskDeadlinesData
         }
     }
     

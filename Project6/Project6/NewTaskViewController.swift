@@ -23,7 +23,7 @@ class NewTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()        
    
-         //to clear the userdefaults
+         //to clear the user defaults
 //        defaults.set([String](), forKey: "taskNames")
 //        defaults.set([String](), forKey: "taskDescriptions")
 //        defaults.set([String](), forKey: "taskDeadlines")
@@ -67,9 +67,9 @@ class NewTaskViewController: UIViewController {
             defaults.set(taskDeadlines, forKey: "taskDeadlines")
         
          
-        print(defaults.array(forKey: "taskNames"))
-        print(defaults.array(forKey: "taskDescriptions"))
-        print(defaults.array(forKey: "taskDeadlines"))
+//        print(defaults.array(forKey: "taskNames"))
+//        print(defaults.array(forKey: "taskDescriptions"))
+//        print(defaults.array(forKey: "taskDeadlines"))
 
     }
 }
