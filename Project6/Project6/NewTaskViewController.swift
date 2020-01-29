@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class NewTaskViewController: UIViewController {
     let defaults = UserDefaults.standard
@@ -21,7 +22,14 @@ class NewTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()        
-    if let taskNamesData =
+   
+        // to clear the userdefaults
+//        defaults.set([String](), forKey: "taskNames")
+//        defaults.set([String](), forKey: "taskDescriptions")
+//        defaults.set([String](), forKey: "taskDeadlines")
+
+        
+        if let taskNamesData =
             defaults.array(forKey: "taskNames") as? [String] {
             // successfully found the saved data!
             taskNames = taskNamesData
@@ -45,8 +53,8 @@ class NewTaskViewController: UIViewController {
         }
     }
 
-//    @IBAction func doneButtonPressed(_ sender: Any) {
-        override func viewWillDisappear(_ animated: Bool) {
+ // @IBAction func doneButtonPressed(_ sender: Any) {
+    override func viewWillDisappear(_ animated: Bool) {
         let newTaskNameText = newTaskNameInput.text!
             taskNames.append(newTaskNameText)
             defaults.set(taskNames, forKey: "taskNames")
@@ -58,9 +66,5 @@ class NewTaskViewController: UIViewController {
             let newTaskDeadline = newTaskDeadlineInput.text!
             taskDeadlines.append(newTaskDeadline)
             defaults.set(taskDeadlines, forKey: "taskDeadlines")
-
-        print(taskNames)
-        print(taskDescriptions)
-        print(taskDeadlines)
     }
 }
