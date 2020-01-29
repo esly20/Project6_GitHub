@@ -31,7 +31,7 @@ class NewTaskViewController: UIViewController {
 
 
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-    //    override func viewWillDisappear(_ animated: Bool) {
+//loading the pre-existing user deafults
         if let taskNamesData =
             defaults.array(forKey: "taskNames") as? [String] {
             // successfully found the saved data!
@@ -54,6 +54,7 @@ class NewTaskViewController: UIViewController {
             // No student data saved (first time only, probably!
             defaults.set([String](), forKey: "taskDeadlines")
         }
+        //adding the new infomation to use deafualts
         let newTaskNameText = newTaskNameInput.text!
             taskNames.append(newTaskNameText)
             defaults.set(taskNames, forKey: "taskNames")

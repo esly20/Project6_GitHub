@@ -14,17 +14,21 @@ class TaskTableViewController: UITableViewController {
     var taskNames: [String] = []
     var taskDescriptions: [String] = []
     var taskDeadlines: [String] = []
+    //used to delete tasks from the user defaults
     var taskNamesFinished: [String] = []
     var taskDescriptionsFinished: [String] = []
     var taskDeadlinesFinished: [String] = []
 
+    var points: Int = 0
+    
 override func viewDidLoad() {
         super.viewDidLoad()
-        
+        points = defaults.integer(forKey: "points")
         
     }
     
 override func viewDidAppear(_ annimated: Bool){
+    //loading the data from user defualts
     if let taskNamesData =
             defaults.array(forKey: "taskNames") as? [String] {
             taskNames = taskNamesData
@@ -53,7 +57,7 @@ override func viewDidAppear(_ annimated: Bool){
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "myCellIdentifier", for: indexPath)
-        
+        //WHY WON'T THIS WORk!?!?!?!?!
         if let cellWithOtherName = cell as? InitialTableViewCell {
             cellWithOtherName.taskNameLabel.text = taskNames[indexPath.row]
             cellWithOtherName.taskDescription.text = taskDescriptions[indexPath.row]
@@ -64,29 +68,30 @@ override func viewDidAppear(_ annimated: Bool){
         return cell
     }
     
+    // Adapted from https://medium.com/ios-os-x-development/enable-slide-to-delete-in-uitableview-9311653dfe2 and help from Ryan
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            //add to deleted tasks array
+            //deleting from user defaults
             taskNamesFinished.append(taskNames[indexPath.row])
             taskDescriptionsFinished.append(taskDescriptions[indexPath.row])
             taskDeadlinesFinished.append(taskDeadlines[indexPath.row])
 
-            taskNames.remove(at: indexPath.row)
-            taskDescriptions.remove(at: indexPath.row)
-            taskDeadlines.remove(at: indexPath.row)
-
-            
             defaults.set(taskNames, forKey: "taskNames")
             defaults.set(taskDescriptions, forKey: "taskNames")
             defaults.set(taskDeadlines, forKey: "taskNames")
             defaults.set(taskNamesFinished, forKey: "taskNamesFinished")
             defaults.set(taskDeadlinesFinished, forKey: "taskDeadlinesFinished")
             defaults.set(taskDescriptionsFinished, forKey: "taskDescriptionsFinished")
-
+           
+            // deleting form tableView
+            self.taskNames.remove(at: indexPath.row)
+            self.taskDescriptions.remove(at: indexPath.row)
+            self.taskDeadlines.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            
-        }
+            points += 25
+            points = defaults.integer(forKey: "points")
+
     }
+}
 }
