@@ -71,6 +71,9 @@ class NewTaskViewController: UIViewController {
 //        print(defaults.array(forKey: "taskNames"))
 //        print(defaults.array(forKey: "taskDescriptions"))
 //        print(defaults.array(forKey: "taskDeadlines"))
-
+        if let tvc = navigationController?.viewControllers.first as? TaskTableViewController {
+            tvc.viewDidAppear(true)
+        }
+        navigationController?.popViewController(animated: true)
     }
 }

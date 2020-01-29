@@ -14,12 +14,7 @@ class TaskTableViewController: UITableViewController {
     var taskNames: [String] = []
     var taskDescriptions: [String] = []
     var taskDeadlines: [String] = []
-    //used to delete tasks from the user defaults
-    var taskNamesFinished: [String] = []
-    var taskDescriptionsFinished: [String] = []
-    var taskDeadlinesFinished: [String] = []
-
-    var points: Int = 0
+        var points: Int = 0
     
 override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +40,29 @@ override func viewDidAppear(_ annimated: Bool){
         } else {
             defaults.set([String](), forKey: "taskDeadlines")
         }
+    tableView.reloadData()
+    }
+    @IBAction func editTaskPressed(_ sender: UIButton) {
+        //followed tutorial at https://learnappmaking.com/uialertcontroller-alerts-swift-how-to/ and old code from Summer Session App
+        
+        let alert = UIAlertController(title: "Edit Task Description?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = " "
+        })
+
+        alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { action in
+            var newDescription = alert.textFields?.first?.text
+//            self.taskDescription.text = newDescription
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "myCellIdentifier", for: indexPath)
+//            if let cellWithOtherName = cell as? InitialTableViewCell {
+//                cellWithOtherName.taskDescription.text = newDescription
+//               
+//                return cellWithOtherName
+//            }
+//            return cell
+        }))
+        self.present(alert, animated: true)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,7 +75,6 @@ override func viewDidAppear(_ annimated: Bool){
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "myCellIdentifier", for: indexPath)
-        //WHY WON'T THIS WORk!?!?!?!?!
         if let cellWithOtherName = cell as? InitialTableViewCell {
             cellWithOtherName.taskNameLabel.text = taskNames[indexPath.row]
             cellWithOtherName.taskDescription.text = taskDescriptions[indexPath.row]
@@ -73,25 +90,20 @@ override func viewDidAppear(_ annimated: Bool){
         if editingStyle == .delete {
             
             //deleting from user defaults
-            taskNamesFinished.append(taskNames[indexPath.row])
-            taskDescriptionsFinished.append(taskDescriptions[indexPath.row])
-            taskDeadlinesFinished.append(taskDeadlines[indexPath.row])
-
+            taskNames.remove(at:  indexPath.row)
+            taskDescriptions.remove(at: indexPath.row)
+            taskDeadlines.remove(at: indexPath.row)
             defaults.set(taskNames, forKey: "taskNames")
-            defaults.set(taskDescriptions, forKey: "taskNames")
-            defaults.set(taskDeadlines, forKey: "taskNames")
-            defaults.set(taskNamesFinished, forKey: "taskNamesFinished")
-            defaults.set(taskDeadlinesFinished, forKey: "taskDeadlinesFinished")
-            defaults.set(taskDescriptionsFinished, forKey: "taskDescriptionsFinished")
+            defaults.set(taskDeadlines, forKey: "taskDeadlines")
+            defaults.set(taskDescriptions, forKey: "taskDescriptions")
            
             // deleting form tableView
-            self.taskNames.remove(at: indexPath.row)
-            self.taskDescriptions.remove(at: indexPath.row)
-            self.taskDeadlines.remove(at: indexPath.row)
+//            self.taskNames.remove(at: indexPath.row)
+//            self.taskDescriptions.remove(at: indexPath.row)
+//            self.taskDeadlines.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            points += 25
-            points = defaults.integer(forKey: "points")
-
+            points += 5
+            defaults.set(points, forKey: "points")
     }
 }
 }
