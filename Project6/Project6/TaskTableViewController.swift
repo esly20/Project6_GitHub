@@ -4,61 +4,105 @@
 //  Created by emma on 1/17/20.
 //  Copyright © 2020 Emma Slibeck. All rights reserved.
 //
-import UIKit
 import Foundation
+import UIKit
+
 
 class TaskTableViewController: UITableViewController {
     let defaults = UserDefaults.standard
     
-    var taskNamesList: [String] = []
-    var taskDescriptionsList: [String] = []
-    var taskDeadlinesList: [String] = []
+    var taskNames: [String] = []
+    var taskDescriptions: [String] = []
+    var taskDeadlines: [String] = []
+    var tasksFinished: [String] = []
     
-//    let doneText: String = "Congratulations on finishing a Task! Don't Stop Now!"
 override func viewDidLoad() {
         super.viewDidLoad()
-        print(taskNamesList)
-        print(taskDescriptionsList)
-        print(taskDeadlinesList)
         
         if let taskNamesData =
             defaults.array(forKey: "taskNames") as? [String] {
-            taskNamesList = taskNamesData
-        print("Data Loaded")
+            taskNames = taskNamesData
+        
+            print("Data Loaded")
         
         } else {
             defaults.set([String](), forKey: "taskNames")
         }
         if let taskDescriptionData = defaults.array(forKey: "taskDescriptions") as? [String] {
-            taskDescriptionsList = taskDescriptionData
+            taskDescriptions = taskDescriptionData
         } else {
             defaults.set([String](), forKey: "taskDescriptions")
         }
         if let taskDeadlinesData = defaults.array(forKey: "taskDeadlines") as? [String] {
-            taskDeadlinesList = taskDeadlinesData
+            taskDeadlines = taskDeadlinesData
         } else {
             defaults.set([String](), forKey: "taskDeadlines")
         }
     }
     
+override func viewDidAppear(_ annimated: Bool){
+        if let taskNamesData =
+            defaults.array(forKey: "taskNames") as? [String] {
+            // successfully found the saved data!
+            taskNames = taskNamesData
+        }
+        if let taskDescriptionData = defaults.array(forKey: "taskDescriptions") as? [String] {
+            // successfully found the saved data!
+            taskDescriptions = taskDescriptionData
+        }
+        if let taskDeadlinesData = defaults.array(forKey: "taskDeadlines") as? [String] {
+            // successfully found the saved data!
+            taskDeadlines = taskDeadlinesData
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskNamesList.count
+        return taskNames.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCellIdentifier", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "myCellIdentifier", for: indexPath)
         
         if let cellWithOtherName = cell as? InitialTableViewCell {
-            cellWithOtherName.taskNameLabel.text = taskNamesList[indexPath.row]
-            cellWithOtherName.taskDescription.text = taskDescriptionsList[indexPath.row]
+            cellWithOtherName.taskNameLabel.text = taskNames[indexPath.row]
+            cellWithOtherName.taskDescription.text = taskDescriptions[indexPath.row]
             
-            cellWithOtherName.taskDeadline.text = taskDeadlinesList[indexPath.row]
+            cellWithOtherName.taskDeadline.text = taskDeadlines[indexPath.row]
+            
             return cellWithOtherName
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            //add to deleted tasks array
+            tasksFinished.append(taskNames[indexPath.row])
+            tasksFinished.append(taskDescriptions[indexPath.row])
+            tasksFinished.append(taskDeadlines[indexPath.row])
+
+            
+            //delete item from tasks array
+            taskNames.remove(at: indexPath.row)
+            taskDescriptions.remove(at: indexPath.row)
+            taskDeadlines.remove(at: indexPath.row)
+
+            
+            //update user defaults here
+            defaults.set(taskNames, forKey: "taskNames")
+            defaults.set(taskDescriptions, forKey: "taskNames")
+            defaults.set(taskDeadlines, forKey: "taskNames")
+            defaults.set(tasksFinished, forKey: "tasksFinished")
+
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            
+        }
     }
 }

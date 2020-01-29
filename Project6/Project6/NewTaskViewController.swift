@@ -23,12 +23,15 @@ class NewTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()        
    
-        // to clear the userdefaults
+         //to clear the userdefaults
 //        defaults.set([String](), forKey: "taskNames")
 //        defaults.set([String](), forKey: "taskDescriptions")
 //        defaults.set([String](), forKey: "taskDeadlines")
+    }
 
-        
+
+    @IBAction func doneButtonPressed(_ sender: UIButton) {
+    //    override func viewWillDisappear(_ animated: Bool) {
         if let taskNamesData =
             defaults.array(forKey: "taskNames") as? [String] {
             // successfully found the saved data!
@@ -51,10 +54,6 @@ class NewTaskViewController: UIViewController {
             // No student data saved (first time only, probably!
             defaults.set([String](), forKey: "taskDeadlines")
         }
-    }
-
- // @IBAction func doneButtonPressed(_ sender: Any) {
-    override func viewWillDisappear(_ animated: Bool) {
         let newTaskNameText = newTaskNameInput.text!
             taskNames.append(newTaskNameText)
             defaults.set(taskNames, forKey: "taskNames")
@@ -66,5 +65,11 @@ class NewTaskViewController: UIViewController {
             let newTaskDeadline = newTaskDeadlineInput.text!
             taskDeadlines.append(newTaskDeadline)
             defaults.set(taskDeadlines, forKey: "taskDeadlines")
+        
+         
+        print(defaults.array(forKey: "taskNames"))
+        print(defaults.array(forKey: "taskDescriptions"))
+        print(defaults.array(forKey: "taskDeadlines"))
+
     }
 }

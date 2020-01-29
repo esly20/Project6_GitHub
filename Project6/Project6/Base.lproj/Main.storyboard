@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Progress-->
         <scene sceneID="gh7-C3-0Po">
             <objects>
                 <viewController id="P4n-xK-9aa" customClass="ViewController" customModule="Project6" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4e0-iZ-Tfo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="tq6-OB-sGN"/>
+                    <tabBarItem key="tabBarItem" title="Progress" image="sparkles" catalog="system" selectedImage="sparkles" id="tq6-OB-sGN"/>
                     <connections>
                         <outlet property="phrasesLabel" destination="Rcf-ZO-JKI" id="NvH-c0-9Nt"/>
                     </connections>
@@ -54,26 +54,26 @@
             <objects>
                 <tabBarController id="7X8-Z8-aIz" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="0co-Vd-8Q5"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dV3-kc-Xfk">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="dV3-kc-Xfk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="P4n-xK-9aa" kind="relationship" relationship="viewControllers" id="EVz-ul-H40"/>
-                        <segue destination="Jy6-aT-Cci" kind="relationship" relationship="viewControllers" id="EHr-Mr-NK5"/>
+                        <segue destination="lLe-mg-IMf" kind="relationship" relationship="viewControllers" id="iYZ-K8-F2E"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7EX-TS-BEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2223" y="-324"/>
         </scene>
-        <!--To-Do-->
+        <!--Tasks-->
         <scene sceneID="1c5-g1-yXI">
             <objects>
                 <tableViewController id="cE2-Bw-9Vh" customClass="TaskTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y8M-ld-OUi" customClass="TaskTableViewContoller">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -84,11 +84,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="StM-S1-Oo2">
-                                            <rect key="frame" x="239" y="43" width="146" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFq-BZ-xBQ">
                                             <rect key="frame" x="0.0" y="-1" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -124,17 +119,19 @@
                             <outlet property="delegate" destination="cE2-Bw-9Vh" id="SZb-ST-w6Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="To-Do" id="iBr-Nz-UJ5">
-                        <barButtonItem key="rightBarButtonItem" title="Add Item" id="iw2-G8-IVO">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Tasks" id="iBr-Nz-UJ5">
+                        <barButtonItem key="rightBarButtonItem" title="+ To-Do" id="gHw-J6-GBh">
                             <connections>
-                                <segue destination="6ES-Jg-eTI" kind="show" id="WS1-kb-evm"/>
+                                <segue destination="6ES-Jg-eTI" kind="presentation" id="Sqk-eX-R97"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmq-U7-hhZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-285.50724637681162" y="-464.0625"/>
+            <point key="canvasLocation" x="-302.89855072463769" y="-429.24107142857139"/>
         </scene>
         <!--New Task View Controller-->
         <scene sceneID="nqe-Ht-JKT">
@@ -154,7 +151,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epv-Za-sW9">
-                                        <rect key="frame" x="0.0" y="268" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="206" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYf-M5-8B7">
                                                 <rect key="frame" x="0.0" y="0.0" width="77.5" height="34"/>
@@ -170,7 +167,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lhm-AM-00E">
-                                        <rect key="frame" x="0.0" y="521" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="396.5" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5V-JW-brg">
                                                 <rect key="frame" x="0.0" y="0.0" width="92.5" height="34"/>
@@ -186,7 +183,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obF-P0-a5e">
-                                        <rect key="frame" x="0.0" y="774" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="587.5" width="414" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t52-vS-xfo">
                                                 <rect key="frame" x="0.0" y="0.0" width="67" height="34"/>
@@ -201,6 +198,14 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CT3-td-imB">
+                                        <rect key="frame" x="0.0" y="778" width="414" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="6ES-Jg-eTI" eventType="touchUpInside" id="Kkh-Wd-TZB"/>
+                                            <segue destination="7X8-Z8-aIz" kind="modal" id="TMW-zf-lOG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="xXt-hC-Goq" firstAttribute="centerX" secondItem="0MV-2x-xPi" secondAttribute="centerX" id="4xc-VC-iAR"/>
@@ -220,7 +225,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="hRs-9V-Ye0">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="6ES-Jg-eTI" id="wY6-C4-gY7"/>
-                                <segue destination="cE2-Bw-9Vh" kind="show" id="TSe-zV-o0x"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -232,33 +236,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Zt-pD-Jhu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616" y="-472"/>
+            <point key="canvasLocation" x="808.69565217391312" y="-429.24107142857139"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="52Y-jS-O9R">
+        <!--To-Do-->
+        <scene sceneID="JT3-e7-mlG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jy6-aT-Cci" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="So5-ql-Sh4"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lLe-mg-IMf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="To-Do" image="checkmark.seal" catalog="system" selectedImage="checkmark.seal.fill" id="oeF-kY-74P"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hTN-Ye-n3h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HV3-fv-LpI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="cE2-Bw-9Vh" kind="relationship" relationship="rootViewController" id="KI1-QY-8CK"/>
+                        <segue destination="cE2-Bw-9Vh" kind="relationship" relationship="rootViewController" id="gsU-eK-jTm"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wbI-QX-2Q5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCq-ur-HZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1195.6521739130435" y="-464.0625"/>
+            <point key="canvasLocation" x="-1213.0434782608697" y="-429.24107142857139"/>
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.seal" catalog="system" width="64" height="60"/>
+        <image name="checkmark.seal.fill" catalog="system" width="64" height="60"/>
         <image name="pencil" catalog="system" width="64" height="56"/>
+        <image name="sparkles" catalog="system" width="56" height="64"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="WS1-kb-evm"/>
-        <segue reference="TSe-zV-o0x"/>
-    </inferredMetricsTieBreakers>
 </document>
